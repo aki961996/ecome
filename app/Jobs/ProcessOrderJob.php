@@ -80,7 +80,7 @@ class ProcessOrderJob implements ShouldQueue
                 'processed_at' => now()
             ]);
 
-            // Mark job 
+            //  job 
             $jobRecord->markAsCompleted();
 
             DB::commit();
@@ -116,7 +116,7 @@ class ProcessOrderJob implements ShouldQueue
             //  "failed" if no more retries  // no 
             $this->order->update(['status' => 'failed']);
 
-            // Update job record with error
+            
             if ($jobRecord) {
                 $jobRecord->markAsFailed($e->getMessage());
             } else {

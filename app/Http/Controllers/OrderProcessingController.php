@@ -45,7 +45,7 @@ class OrderProcessingController extends Controller
         // Dispatch 
         $job = ProcessOrderJob::dispatch($order)->delay(now()->addSeconds(2));
 
-         // Create a pending job record
+         // Create a pending job record // record
         $jobRecord = OrderProcessingJob::create([
             'order_id' => $order->id,
             'job_type' => 'order_processing',

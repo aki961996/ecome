@@ -64,7 +64,7 @@ class SetupTestOrder extends Command
             ]
         );
 
-        // Create pending order
+        //  pending order
         $order = Order::create([
             'user_id' => $user->id,
             'order_number' => 'TEST-' . time(),
@@ -72,7 +72,7 @@ class SetupTestOrder extends Command
             'status' => 'pending'
         ]);
 
-        // Add order items
+        
         OrderItem::create([
             'order_id' => $order->id,
             'product_id' => $product1->id,
