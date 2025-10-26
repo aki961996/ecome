@@ -22,4 +22,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard/orders-summary', [DashboardController::class, 'getOrdersSummary']);
 Route::get('/dashboard/stats', [DashboardController::class, 'getDashboardStatsOnly']);
 
-// Route::get('/dashboard/orders-summary-optimized', [DashboardController::class, 'getOrdersSummaryOptimized']);
+

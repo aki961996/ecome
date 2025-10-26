@@ -22,5 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Order routes
 Route::post('/orders/{order_id}/process', [OrderProcessingController::class, 'processOrder']);
-// Route::get('/processing-jobs/{job_id}/status', [OrderProcessingController::class, 'getJobStatus']);
-// Route::post('/orders/bulk-process', [OrderProcessingController::class, 'bulkProcessOrders']);
+
