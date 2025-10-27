@@ -156,62 +156,6 @@ class DashboardController extends Controller
             'data' => $stats
         ]);
     }
-    // public function getOrdersSummaryOptimized(Request $request): JsonResponse
-    // {
-    //     $dateRange = $request->get('date_range', 30);
-    //     $startDate = Carbon::now()->subDays($dateRange)->startOfDay();
-    //     $endDate = Carbon::now()->endOfDay();
-
-    //     // Get orders with categories in single query
-    //     $ordersQuery = DB::table('orders')
-    //         ->select([
-    //             'orders.id',
-    //             'orders.order_number',
-    //             'orders.total_amount',
-    //             'orders.status',
-    //             'orders.created_at',
-    //             'users.name as customer_name',
-    //             DB::raw('(SELECT COUNT(*) FROM order_items WHERE order_items.order_id = orders.id) as items_count'),
-    //             DB::raw('(
-    //                 SELECT GROUP_CONCAT(DISTINCT categories.name ORDER BY categories.name SEPARATOR ", ")
-    //                 FROM order_items 
-    //                 INNER JOIN products ON order_items.product_id = products.id 
-    //                 INNER JOIN categories ON products.category_id = categories.id 
-    //                 WHERE order_items.order_id = orders.id
-    //             ) as category_names')
-    //         ])
-    //         ->join('users', 'orders.user_id', '=', 'users.id')
-    //         ->whereBetween('orders.created_at', [$startDate, $endDate])
-    //         ->orderBy('orders.created_at', 'desc');
-
-    //     $orders = $ordersQuery->paginate(20);
-
-    //     // Transform the results
-    //     $transformedOrders = $orders->getCollection()->map(function ($order) {
-    //         return [
-    //             'order_number' => $order->order_number,
-    //             'customer_name' => $order->customer_name,
-    //             'total_amount' => $order->total_amount,
-    //             'status' => $order->status,
-    //             'items_count' => $order->items_count,
-    //             'category_names' => $order->category_names ?? 'No categories',
-    //             'order_date' => Carbon::parse($order->created_at)->format('Y-m-d H:i:s'),
-    //             'formatted_date' => Carbon::parse($order->created_at)->diffForHumans(),
-    //         ];
-    //     });
-
-    //     $orders->setCollection($transformedOrders);
-
-    //     $stats = $this->getDashboardStats($startDate, $endDate);
-
-    //     return response()->json([
-    //         'success' => true,
-    //         'data' => [
-    //             'orders' => $orders,
-    //             'statistics' => $stats,
-    //         ]
-    //     ]);
-    // }
-
+    
       
 }
